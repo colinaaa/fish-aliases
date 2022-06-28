@@ -4,7 +4,7 @@ if status is-login
     set -gx EDITOR nvim
   end
   if type -q fnm
-    fnm env | source
+    fnm env --use-on-cd | source
   end
   if type -q pyenv
     pyenv init --path | source
