@@ -1,4 +1,4 @@
-if status is-login
+function __login -d 'Registe login env';
   set -gx PAGER less
   if type -q nvim
     set -gx EDITOR nvim
@@ -13,8 +13,15 @@ if status is-login
     rbenv init - fish | source
   end
 end
+if status is-login
+  __login
+end
 
 if status is-interactive
+  if not status is-login
+    __login
+  end
+
   # Commands to run in interactive sessions can go here
   if type -q pyenv
     pyenv init - | source
