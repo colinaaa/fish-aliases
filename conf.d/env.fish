@@ -4,7 +4,7 @@ function __login -d 'Registe login env';
     set -gx EDITOR nvim
   end
   if type -q fnm
-    fnm env --use-on-cd | source
+    fnm env --use-on-cd --corepack-enabled | source
   end
   if type -q pyenv
     pyenv init --path | source
